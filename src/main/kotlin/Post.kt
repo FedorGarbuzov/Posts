@@ -24,6 +24,7 @@ data class Post(
     val postponedId: Int = 0,
     val postSource: PostSource = PostSource(),
     val geo: Geo = Geo(),
+    val attachments: Array<Attachment> = emptyArray(),
     val copyHistory: Array<Post>? = null
 ) {
     override fun equals(other: Any?): Boolean {
