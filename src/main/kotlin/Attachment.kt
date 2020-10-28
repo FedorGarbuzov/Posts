@@ -1,5 +1,5 @@
-interface Attachment {
-    val type: String
+sealed class Attachment {
+    abstract val type: String
 }
 
 data class Photo(
@@ -13,7 +13,7 @@ data class Photo(
         val sizes: Array<Any> = emptyArray(),
         val width: Int = 0,
         val height: Int = 0
-) : Attachment
+) : Attachment()
 
 data class Audio(
         override val type: String = "Audio",
@@ -29,7 +29,7 @@ data class Audio(
         val genreId: Int = 0,
         val noSearch: Boolean = false,
         val isHq: Boolean = false
-) : Attachment
+) : Attachment()
 
 data class Note(
         override val type: String = "Note",
@@ -41,7 +41,7 @@ data class Note(
         val comments: Int = 0,
         val readComments: Int = 0,
         val viewUrl: String = ""
-) : Attachment
+) : Attachment()
 
 data class Video(
         override val type: String = "Video",
@@ -86,7 +86,7 @@ data class Video(
         val spectators: Int = 0,
         val likes: Likes = Likes(),
         val reposts: Reposts = Reposts(),
-) : Attachment
+) : Attachment()
 
 data class Page(
         override val type: String = "",
@@ -108,4 +108,4 @@ data class Page(
         val source: String = "",
         val html: String? = null,
         val viewUrl: String = ""
-) : Attachment
+) : Attachment()
